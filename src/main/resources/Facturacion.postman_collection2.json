@@ -126,7 +126,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{   \r\n    \"sku\": \"1256\",\r\n    \"descripcion\": \"perrohpta\",\r\n    \"precioCompra\": \"2.0\",\r\n    \"precioVenta\": \"2.0\",\r\n    \"stock\": \"12\",\r\n    \"fecha_alta\": \"2022-10-14\"\r\n}    \r\n   ",
+							"raw": "\r\n{   \r\n    \"sku\": \"1256\",\r\n    \"descripcion\": \"hola\",\r\n    \"precioCompra\": \"2.0\",\r\n    \"precioVenta\": \"2.0\",\r\n    \"stock\": \"12\",\r\n    \"fecha_alta\": \"2022-10-14\"\r\n}    \r\n   ",
 							"options": {
 								"raw": {
 									"language": "json"
