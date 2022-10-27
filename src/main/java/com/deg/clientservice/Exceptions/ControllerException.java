@@ -18,4 +18,9 @@ public class ControllerException {
         return new ResponseEntity<>("El producto no existe", HttpStatus.BAD_REQUEST);
     }
 
+     @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> exception(Exception ex){
+        return new ResponseEntity<>("No hay Stock suficiente", HttpStatus.NOT_FOUND);
+    }
+
 }

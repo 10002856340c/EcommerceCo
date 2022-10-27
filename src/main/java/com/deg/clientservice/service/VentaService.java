@@ -26,7 +26,7 @@ private VentaRepository ventaRepository;
         Optional<VentaModelo> clientBD = this.ventaRepository.findById(id);
         if (clientBD.isPresent()){
             VentaModelo c = clientBD.get();
-             c.setCliente_id(client.getCliente_id());
+             c.setClienteid(client.getClienteid());
              c.setFecha_alta(client.getFecha_alta());
              c.setTotal(client.getTotal());
             

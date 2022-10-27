@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "3c97f94e-7150-4380-b050-2e688d534bb9",
+		"name": "Cliente-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23842583"
+	},
+	"item": [
+		{
+			"name": "Cliente - Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \r\n    \r\n    \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9516/api/venta/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9516",
+					"path": [
+						"api",
+						"venta",
+						""
+					],
+					"query": [
+						{
+							"key": "num1",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "num2",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente - List All",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9503/api/cliente/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9503",
+					"path": [
+						"api",
+						"cliente",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cliente - Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \"dni\":\"2555\",\r\n    \"nombre\":\"carlos\",\r\n    \"apellido\":\"Pulido\",\r\n    \"fecha_nacimiento\":\"2022-07-25\"\r\n}\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9503/api/cliente/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9503",
+					"path": [
+						"api",
+						"cliente",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
