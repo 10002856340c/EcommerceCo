@@ -21,17 +21,18 @@ public class ProductosModel {
      @GeneratedValue(strategy = GenerationType.IDENTITY)
       private Long id;
 
-     @Column
       private String sku;
-      @Column
+
       private String descripcion;
-      @Column
-      private double precio_compra;
-      @Column
-      private double precio_venta;
-     @Column
+
+      @Column(name = "precio_compra")
+      private double precioCompra;
+
+      @Column(name = "precio_venta")
+      private double precioVenta;
+     
       private int stock;
-      @Column
+      
       private LocalDate fecha_alta;
     
 }

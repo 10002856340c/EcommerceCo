@@ -5,6 +5,8 @@
 package com.deg.clientservice.service;
 
 import com.deg.clientservice.Exceptions.ResourceNotFoundException;
+import com.deg.clientservice.Validator.ClienteValidado;
+import com.deg.clientservice.Validator.ProductoValidado;
 
 import com.deg.clientservice.model.ProductosModel;
 
@@ -18,9 +20,23 @@ import org.springframework.stereotype.Service;
 public class ProductosService {
      @Autowired
     private ProductosRepository productosRepository;
+   @Autowired
+    private ProductoValidado productoValidado;
 
-    public ProductosModel create (ProductosModel newClient){
-        return this.productosRepository.save(newClient);
+  
+    public ProductosModel create (ProductosModel newProduct) throws ResourceNotFoundException{
+
+         this.productoValidado.validate(newProduct);
+
+        Optional<ProductosModel>ProductoBD=this.productosRepository.findBySku(newProduct.getSku());
+
+        if(ProductoBD.isPresent()){
+          throw new ResourceNotFoundException("Ya existe un producto con el sku brindado");
+
+         }else{
+
+         return this.productosRepository.save(newProduct);
+       } 
     }
 
     public List<ProductosModel> findAll(){
@@ -33,8 +49,8 @@ public class ProductosService {
             ProductosModel c = clientBD.get();
             c.setSku(client.getSku());
             c.setDescripcion(client.getDescripcion());
-            c.setPrecio_compra(client.getPrecio_compra());
-            c.setPrecio_venta(c.getPrecio_compra());
+            c.setPrecioCompra(client.getPrecioCompra());
+            c.setPrecioVenta(c.getPrecioVenta());
            c.setFecha_alta(client.getFecha_alta());
             return this.productosRepository.save(c);
         }else{
