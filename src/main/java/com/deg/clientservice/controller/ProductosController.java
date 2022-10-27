@@ -1,6 +1,7 @@
 
 package com.deg.clientservice.controller;
 
+import com.deg.clientservice.Exceptions.ResourceAlreadyExistsException;
 import com.deg.clientservice.Exceptions.ResourceNotFoundException;
 import com.deg.clientservice.model.Client;
 import com.deg.clientservice.model.ProductosModel;
@@ -10,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,8 +29,8 @@ public class ProductosController {
 
 
     @PostMapping("/")
-    public ResponseEntity<ProductosModel> create(@RequestBody ProductosModel client){
-        return new ResponseEntity<>(this.productosService.create(client), HttpStatus.OK);
+    public ResponseEntity<ProductosModel> create(@RequestBody  ProductosModel productosModel) throws ResourceAlreadyExistsException{
+        return new ResponseEntity<>(this.productosService.create(productosModel), HttpStatus.OK);
     }
 
     @GetMapping("/")
@@ -37,8 +39,8 @@ public class ProductosController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductosModel> update(@RequestBody ProductosModel clientUpdate, @PathVariable Long id) throws ResourceNotFoundException {
-        return new ResponseEntity<>(this.productosService.update(clientUpdate, id), HttpStatus.OK);
+    public ResponseEntity<ProductosModel> update(@RequestBody ProductosModel productosModelUpdate, @PathVariable Long id) throws ResourceNotFoundException {
+        return new ResponseEntity<>(this.productosService.update(productosModelUpdate, id), HttpStatus.OK);
     }
     
 }

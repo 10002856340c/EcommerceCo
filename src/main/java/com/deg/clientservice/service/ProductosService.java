@@ -4,7 +4,9 @@
  */
 package com.deg.clientservice.service;
 
+import com.deg.clientservice.Exceptions.ResourceAlreadyExistsException;
 import com.deg.clientservice.Exceptions.ResourceNotFoundException;
+
 import com.deg.clientservice.Validator.ClienteValidado;
 import com.deg.clientservice.Validator.ProductoValidado;
 
@@ -24,14 +26,14 @@ public class ProductosService {
     private ProductoValidado productoValidado;
 
   
-    public ProductosModel create (ProductosModel newProduct) throws ResourceNotFoundException{
+    public ProductosModel create (ProductosModel newProduct) throws ResourceAlreadyExistsException {
 
          this.productoValidado.validate(newProduct);
 
         Optional<ProductosModel>ProductoBD=this.productosRepository.findBySku(newProduct.getSku());
 
         if(ProductoBD.isPresent()){
-          throw new ResourceNotFoundException("Ya existe un producto con el sku brindado");
+          throw new ResourceAlreadyExistsException("Ya existe un producto con el sku brindado");
 
          }else{
 
