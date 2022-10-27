@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "a4a23d70-aced-40fe-a7ce-c2f153ffffb1",
+		"name": "Facturacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23842583"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Cliente - Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \r\n    \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9516/api/venta/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9516",
+							"path": [
+								"api",
+								"venta",
+								""
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "num2",
+									"value": "5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente - List All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9503/api/cliente/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9503",
+							"path": [
+								"api",
+								"cliente",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"dni\":\"2555\",\r\n    \"nombre\":\"carlos\",\r\n    \"apellido\":\"Pulido\",\r\n    \"fecha_nacimiento\":\"2022-07-25\"\r\n}\r\n    ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9503/api/cliente/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9503",
+							"path": [
+								"api",
+								"cliente",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Productos-Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{   \r\n    \"sku\": \"1256\",\r\n    \"descripcion\": \"perrohpta\",\r\n    \"precioCompra\": \"2.0\",\r\n    \"precioVenta\": \"2.0\",\r\n    \"stock\": \"12\",\r\n    \"fecha_alta\": \"2022-10-14\"\r\n}    \r\n   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9516/api/productos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9516",
+							"path": [
+								"api",
+								"productos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Productos - List All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9516/api/productos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9516",
+							"path": [
+								"api",
+								"productos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "productos - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9516/api/productos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9516",
+							"path": [
+								"api",
+								"productos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
