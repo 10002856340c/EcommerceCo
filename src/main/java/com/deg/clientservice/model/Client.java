@@ -13,11 +13,11 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
-    private int dni;
-   @Column
+
+    private String dni;
+
     private String nombre;
-  @Column
+
     private String apellido;
   @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;

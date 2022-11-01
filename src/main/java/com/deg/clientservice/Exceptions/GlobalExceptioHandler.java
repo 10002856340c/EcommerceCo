@@ -20,7 +20,6 @@ public class GlobalExceptioHandler {
     }   
 
 
-
       @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Error>resourceNotFoundException(Exception msg){
     Error error=new Error();

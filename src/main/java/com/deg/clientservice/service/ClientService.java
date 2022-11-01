@@ -1,6 +1,8 @@
 package com.deg.clientservice.service;
 
+import com.deg.clientservice.Exceptions.ResourceAlreadyExistsException;
 import com.deg.clientservice.Exceptions.ResourceNotFoundException;
+import com.deg.clientservice.Validator.ClienteValidado;
 import com.deg.clientservice.model.Client;
 import com.deg.clientservice.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +17,24 @@ public class ClientService {
     @Autowired
     private ClientRepository clientRepository;
 
-    public Client create (Client newClient){
-        return this.clientRepository.save(newClient);
+   @Autowired
+    private ClienteValidado ClienteValidado;
+
+    public Client create (Client newClient) throws ResourceAlreadyExistsException{
+        
+    this.ClienteValidado.validatecliente(newClient);
+
+    Optional<Client>ClienteBD=this.clientRepository.findByDni(newClient.getDni());
+
+        if(ClienteBD.isPresent()){
+
+            throw new ResourceAlreadyExistsException("Ya existe un Cliente con el Dni brindado, por favor ");
+         }else{
+    
+         return this.clientRepository.save(newClient);
+
+       } 
+
     }
 
     public List<Client> findAll(){

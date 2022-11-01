@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{    \r\n    \r\n    \r\n\r\n}",
+							"raw": "{    \r\n    \"dni\":1236,\r\n    \"nombre\":\"felipe\",\r\n    \"apellido\":\"gutierrez\",\r\n    \"fecha_nacimiento\":\"2022-12-03\"\r\n    \r\n    \r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,7 +24,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9516/api/venta/",
+							"raw": "http://localhost:9516/api/cliente/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -32,7 +32,7 @@
 							"port": "9516",
 							"path": [
 								"api",
-								"venta",
+								"cliente",
 								""
 							],
 							"query": [
@@ -69,12 +69,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:9503/api/cliente/",
+							"raw": "http://localhost:9516/api/cliente/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "9503",
+							"port": "9516",
 							"path": [
 								"api",
 								"cliente",

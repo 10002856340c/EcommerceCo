@@ -1,5 +1,6 @@
 package com.deg.clientservice.controller;
 
+import com.deg.clientservice.Exceptions.ResourceAlreadyExistsException;
 import com.deg.clientservice.Exceptions.ResourceNotFoundException;
 import com.deg.clientservice.model.Client;
 import com.deg.clientservice.service.ClientService;
@@ -19,7 +20,7 @@ public class ClientController {
 
 
     @PostMapping("/")
-    public ResponseEntity<Client> create(@RequestBody Client client){
+    public ResponseEntity<Client> create(@RequestBody Client client) throws ResourceAlreadyExistsException{
         return new ResponseEntity<>(this.clientService.create(client), HttpStatus.OK);
     }
 
