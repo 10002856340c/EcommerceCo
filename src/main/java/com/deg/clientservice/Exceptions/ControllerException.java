@@ -1,5 +1,7 @@
 package com.deg.clientservice.Exceptions;
 
+import ExceptionsProductos.DuplicateSku;
+import ExceptionsProductos.PrecioCompramenor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,14 +15,22 @@ public class ControllerException {
         return new ResponseEntity<>("EL CLIENTE NO EXISTE", HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler({IllegalArgumentException.class})
+   /* @ExceptionHandler({IllegalArgumentException.class})
     public ResponseEntity<String>  illegalArgumentException(Exception ex){
-        return new ResponseEntity<>("El producto no existe", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("El precio de Compra o venta no es el adecuado, por favor verificar", HttpStatus.BAD_REQUEST);
+    }*/
+
+     @ExceptionHandler(DuplicateSku.class)
+    public ResponseEntity<String> exception(Exception ex){
+        return new ResponseEntity<>("El Stock esta duplicado, por favor verificar", HttpStatus.NOT_FOUND);
     }
 
-     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> exception(Exception ex){
-        return new ResponseEntity<>("No hay Stock suficiente", HttpStatus.NOT_FOUND);
+    @ExceptionHandler({PrecioCompramenor.class})
+    public ResponseEntity<String> precioCompramenor(Exception ex){
+        return new ResponseEntity<>("El precio de Compra o venta no es el adecuado, por favor verificar", HttpStatus.BAD_REQUEST);
     }
+
+
+
 
 }

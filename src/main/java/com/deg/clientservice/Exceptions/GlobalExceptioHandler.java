@@ -25,7 +25,7 @@ public class GlobalExceptioHandler {
     public ResponseEntity<Error>resourceNotFoundException(Exception msg){
     Error error=new Error();
      error.setMsg(msg.getMessage());
-   error.setStatus("ERROR");
+      error.setStatus("ERROR");
     return new ResponseEntity<>(error,HttpStatus.NOT_FOUND);
 
     }   

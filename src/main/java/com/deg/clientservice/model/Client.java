@@ -19,6 +19,6 @@ public class Client {
     private String nombre;
   @Column
     private String apellido;
-  @Column
-    private LocalDate fecha_nacimiento;
+  @Column(name = "fecha_nacimiento")
+    private LocalDate fechaNacimiento;
 }

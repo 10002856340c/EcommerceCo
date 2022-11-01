@@ -30,7 +30,7 @@ public class ClientService {
              c.setApellido(client.getApellido());
             c.setNombre(client.getNombre());
             c.setDni(client.getDni()); 
-            c.setFecha_nacimiento(client.getFecha_nacimiento());
+            c.setFechaNacimiento(client.getFechaNacimiento());
             return this.clientRepository.save(c);
         }else{
             throw new ResourceNotFoundException("El cliente no existe");
