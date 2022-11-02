@@ -26,6 +26,8 @@ public class ProductosService {
     private ProductoValidado productoValidado;
 
 
+
+
     public ProductosModel create (ProductosModel newProduct) throws ResourceAlreadyExistsException {
 
          this.productoValidado.validate(newProduct);
@@ -41,24 +43,28 @@ public class ProductosService {
        } 
     }
 
+
     public List<ProductosModel> findAll(){
         return this.productosRepository.findAll();
     }
 
-    public ProductosModel update(ProductosModel client, Long id) throws ResourceNotFoundException {
-        Optional<ProductosModel> clientBD = this.productosRepository.findById(id);
-        if (clientBD.isPresent()){
-            ProductosModel c = clientBD.get();
-            c.setSku(client.getSku());
-            c.setDescripcion(client.getDescripcion());
-            c.setPrecioCompra(client.getPrecioCompra());
-            c.setPrecioVenta(c.getPrecioVenta());
-           c.setFecha_alta(client.getFecha_alta());
-            return this.productosRepository.save(c);
-        }else{
-            throw new ResourceNotFoundException("el producto no existe");
-        }
+
+    public ProductosModel update(ProductosModel client, Long id) throws IllegalArgumentException {
+        if (id <=0){
+        throw new IllegalArgumentException("El producto con el id  no fue encontrado por favor verificar");
+            } 
+        ProductosModel productosModel=this.productosRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("El producto con el id  "+id+"  brindado no existe en la base de datos"));
+        
+        productosModel.setDescripcion(client.getDescripcion());
+        productosModel.setFecha_alta(client.getFecha_alta());
+        productosModel.setPrecioCompra(client.getPrecioCompra());
+         productosModel.setPrecioVenta(client.getPrecioVenta());
+         productosModel.setSku(client.getSku());
+        productosModel.setStock(client.getStock());
+
+         return this.productosRepository.save(productosModel);
     }
+
 
     public void delete(Long id){
         this.productosRepository.deleteById(id);

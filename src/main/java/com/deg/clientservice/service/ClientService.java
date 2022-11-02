@@ -41,18 +41,22 @@ public class ClientService {
         return this.clientRepository.findAll();
     }
 
-    public Client update(Client client, Long id) throws ResourceNotFoundException {
-        Optional<Client> clientBD = this.clientRepository.findById(id);
-        if (clientBD.isPresent()){
-            Client c = clientBD.get();
-             c.setApellido(client.getApellido());
-            c.setNombre(client.getNombre());
-            c.setDni(client.getDni()); 
-            c.setFechaNacimiento(client.getFechaNacimiento());
-            return this.clientRepository.save(c);
-        }else{
-            throw new ResourceNotFoundException("El cliente no existe");
-        }
+    public Client update(Client client, Long id) throws IllegalArgumentException{
+         if (id <=0){
+        throw new IllegalArgumentException("El Cliente  con el id  no fue encontrado por favor verificar");
+            } 
+        
+         Client ClientModel=this.clientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("El Cliente con el id  "+id+"  brindado no existe en la base de datos"));
+        
+         ClientModel.setDni(client.getDni());
+         ClientModel.setNombre(client.getNombre());
+         ClientModel.setApellido(client.getApellido());
+         ClientModel.setFechaNacimiento(client.getFechaNacimiento());
+
+       return this.clientRepository.save(ClientModel);
+
+
+    
     }
 
     public void delete(Long id){

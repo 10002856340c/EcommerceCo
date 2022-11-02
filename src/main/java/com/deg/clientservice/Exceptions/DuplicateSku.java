@@ -1,5 +1,5 @@
 
-package ExceptionsProductos;
+package com.deg.clientservice.Exceptions;
 
 
 public class DuplicateSku extends Exception{
