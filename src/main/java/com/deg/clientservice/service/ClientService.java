@@ -28,7 +28,7 @@ public class ClientService {
 
         if(ClienteBD.isPresent()){
 
-            throw new ResourceAlreadyExistsException("Ya existe un Cliente con el Dni brindado, por favor ");
+            throw new ResourceAlreadyExistsException("Ya existe un Cliente con el Dni brindado, por favor verificar nuevamente  ");
          }else{
     
          return this.clientRepository.save(newClient);

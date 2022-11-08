@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "venta")
+
 public class VentaModelo {
 
     @Id
@@ -15,8 +16,9 @@ public class VentaModelo {
     private Long id;
     private LocalDateTime fecha_alta;
     private double total;
-  @Column(name = "cliente_id")
-   private int clienteid;
+   @ManyToOne
+  @JoinColumn(name = "cliente_id")
+   private Client clienteid;
     
     
 }

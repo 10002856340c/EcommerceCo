@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
-/*
+
 @Data
 @Entity
 @Table(name = "detalle_venta")
@@ -25,8 +25,7 @@ public class DetalleVentaModel {
 
   @ManyToOne
   @JoinColumn(name = "venta_id")
-   private int ventaid;
+   private VentaModelo ventaid;
 
 
 }
-*/
