@@ -26,13 +26,12 @@ private VentaRepository ventaRepository;
         Optional<VentaModelo> clientBD = this.ventaRepository.findById(id);
         if (clientBD.isPresent()){
             VentaModelo c = clientBD.get();
-             c.setClienteid(client.getClienteid());
-             c.setFecha_alta(client.getFecha_alta());
+             c.setFechaalta(client.getFechaalta());
              c.setTotal(client.getTotal());
             
             return this.ventaRepository.save(c);
         }else{
-            throw new ResourceNotFoundException("El cliente no existe");
+            throw new ResourceNotFoundException("La venta no existe  no existe");
         }
     }
 

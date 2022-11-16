@@ -14,11 +14,12 @@ public class VentaModelo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime fecha_alta;
+@Column(name = "fecha_alta")
+    private LocalDateTime fechaalta;
     private double total;
    @ManyToOne
   @JoinColumn(name = "cliente_id")
-   private Client clienteid;
+   private ClienteModel clienteid;
     
     
 }

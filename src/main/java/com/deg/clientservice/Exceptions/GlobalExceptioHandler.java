@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptioHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<Error>IllegalArgumentException(Exception msg){
+    public ResponseEntity<Error>illegalArgumentException(Exception msg){
    Error error=new Error();
    error.setMsg(msg.getMessage());
    error.setStatus("ERROR");

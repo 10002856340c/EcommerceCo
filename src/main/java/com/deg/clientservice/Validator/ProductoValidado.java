@@ -2,16 +2,18 @@
 package com.deg.clientservice.Validator;
 
 
+import com.deg.clientservice.Exceptions.ResourceAlreadyExistsException;
 import com.deg.clientservice.model.ProductosModel;
 import java.util.Optional;
 import org.springframework.stereotype.Component;
+import com.deg.clientservice.Exceptions.IllegalArgumentException;
 
 
 
 @Component
 public class ProductoValidado {
 
-public void validate(ProductosModel newProduct){
+public void validate(ProductosModel newProduct) throws ResourceAlreadyExistsException,IllegalArgumentException{
    
         if(newProduct==null){
           throw new IllegalArgumentException("El producto que intentas ingresar esta vacio o es nulo , por favor verificar nuevamente");
@@ -40,8 +42,9 @@ public void validate(ProductosModel newProduct){
         }
         
         if(newProduct.getFecha_alta()==null){
-        throw new IllegalArgumentException("La fecha  del producto esta vacio o nula , por favor verificar ");
+        throw new ResourceAlreadyExistsException("La fecha  del producto esta vacio o nula , por favor verificar ");
         }
+     
 
     }
 

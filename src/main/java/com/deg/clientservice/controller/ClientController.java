@@ -2,8 +2,8 @@ package com.deg.clientservice.controller;
 
 import com.deg.clientservice.Exceptions.ResourceAlreadyExistsException;
 import com.deg.clientservice.Exceptions.ResourceNotFoundException;
-import com.deg.clientservice.model.Client;
-import com.deg.clientservice.service.ClientService;
+import com.deg.clientservice.model.ClienteModel;
+import com.deg.clientservice.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,21 +16,21 @@ import java.util.List;
 public class ClientController {
 
     @Autowired
-    private ClientService clientService;
+    private ClienteService clientService;
 
 
     @PostMapping("/")
-    public ResponseEntity<Client> create(@RequestBody Client client) throws ResourceAlreadyExistsException{
+    public ResponseEntity<ClienteModel> create(@RequestBody ClienteModel client) throws ResourceAlreadyExistsException, ResourceNotFoundException,IllegalArgumentException{
         return new ResponseEntity<>(this.clientService.create(client), HttpStatus.OK);
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Client>> findAll(){
+    public ResponseEntity<List<ClienteModel>> findAll(){
         return new ResponseEntity<>(this.clientService.findAll(), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Client> update(@RequestBody Client clientUpdate, @PathVariable Long id) throws ResourceNotFoundException {
+    public ResponseEntity<ClienteModel> update(@RequestBody ClienteModel clientUpdate, @PathVariable Long id) throws ResourceNotFoundException, ResourceAlreadyExistsException ,IllegalArgumentException{
         return new ResponseEntity<>(this.clientService.update(clientUpdate, id), HttpStatus.OK);
     }
 }

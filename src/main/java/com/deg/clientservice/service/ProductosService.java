@@ -28,7 +28,7 @@ public class ProductosService {
 
 
 
-    public ProductosModel create (ProductosModel newProduct) throws ResourceAlreadyExistsException {
+    public ProductosModel create (ProductosModel newProduct) throws ResourceAlreadyExistsException, com.deg.clientservice.Exceptions.IllegalArgumentException {
 
          this.productoValidado.validate(newProduct);
 

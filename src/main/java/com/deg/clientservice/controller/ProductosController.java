@@ -3,9 +3,9 @@ package com.deg.clientservice.controller;
 
 import com.deg.clientservice.Exceptions.ResourceAlreadyExistsException;
 import com.deg.clientservice.Exceptions.ResourceNotFoundException;
-import com.deg.clientservice.model.Client;
+import com.deg.clientservice.model.ClienteModel;
 import com.deg.clientservice.model.ProductosModel;
-import com.deg.clientservice.service.ClientService;
+import com.deg.clientservice.service.ClienteService;
 import com.deg.clientservice.service.ProductosService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
